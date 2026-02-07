@@ -54,6 +54,27 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Environment Configuration
+
+This application uses Angular environment files for configuration:
+
+- **Development:** `src/environments/environment.ts`
+  - Uses `http://localhost:8080/api`
+  
+- **Production:** `src/environments/environment.prod.ts`
+  - Placeholder URL, update when deploying
+
+### For Production Deployment
+
+Update `src/environments/environment.prod.ts` with your actual backend URL:
+
+\`\`\`typescript
+export const environment = {
+  production: true,
+  apiUrl: 'https://your-actual-backend.com/api'
+};
+\`\`\`
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
