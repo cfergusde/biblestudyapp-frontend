@@ -1,26 +1,112 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Bible Study App - Frontend .gitignore
+# Angular / Node.js / TypeScript Project
+# Generated: 2026-02-07
 
-# Compiled output
+# ============================================
+# Compiled Output & Build Artifacts
+# ============================================
+
+### Angular ###
 /dist
+/dist-server
 /tmp
 /out-tsc
 /bazel-out
 
-# Node
+### Build Tools ###
+/.angular/cache
+.sass-cache/
+/connect.lock
+/typings
+
+### Coverage ###
+/coverage
+.nyc_output/
+
+# ============================================
+# Dependencies
+# ============================================
+
+### Node Modules ###
 /node_modules
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+### Package Manager Lock Files (Optional - Uncomment if not tracking) ###
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
 
-# Visual Studio Code
+### Package Manager Config ###
+.npmrc
+.yarnrc
+.yarnrc.yml
+.pnpmrc
+
+# ============================================
+# Environment & Configuration Files
+# ============================================
+
+### Environment Files ###
+.env
+.env.*
+!.env.example
+.envrc
+
+### Angular Environment Files (CRITICAL!) ###
+# Keep template, ignore actual configs
+src/environments/environment.prod.ts
+src/environments/environment.staging.ts
+src/environments/environment.test.ts
+src/environments/environment.*.ts
+!src/environments/environment.ts
+!src/environments/environment.example.ts
+
+### Firebase Config (if using) ###
+src/environments/firebase-config.ts
+src/environments/firebase-config.json
+firebase-config.ts
+firebase-config.json
+
+# ============================================
+# Secrets & API Keys
+# ============================================
+
+### Credential Files ###
+secrets/
+secrets.json
+secrets.ts
+*-secret.ts
+*-secret.json
+credentials.json
+config/secrets.ts
+
+### API Keys ###
+api-keys.ts
+api-keys.json
+*.api-key
+
+### Certificates ###
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+
+### SSH & Auth ###
+id_rsa
+id_dsa
+*.ppk
+
+# ============================================
+# IDE Configuration Files
+# ============================================
+
+### Visual Studio Code ###
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -28,22 +114,267 @@ yarn-error.log
 !.vscode/extensions.json
 !.vscode/mcp.json
 .history/*
+*.code-workspace
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
+### WebStorm / IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+### Sublime Text ###
+*.sublime-workspace
+*.sublime-project
+
+### Atom ###
+.atom/
+
+# ============================================
+# Testing
+# ============================================
+
+### Unit Tests ###
 /coverage
+.nyc_output/
+
+### E2E Tests ###
+/e2e/*.js
+/e2e/*.map
+
+### Cypress ###
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress.env.json
+
+### Playwright ###
+playwright-report/
+playwright/.cache/
+test-results/
+
+### Test Screenshots ###
+__screenshots__/
+screenshots/
+
+# ============================================
+# Build & Source Maps
+# ============================================
+
+### Source Maps (Production) ###
+*.map
+!*.spec.ts.map
+
+### Build Info ###
+.angular/
+.cache/
+
+# ============================================
+# Logging
+# ============================================
+
+### Log Files ###
+*.log
+logs/
+log/
+*.log.*
+*.log.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Angular Logs ###
 /libpeerconnection.log
 testem.log
-/typings
-__screenshots__/
 
-# System files
+# ============================================
+# Operating System Files
+# ============================================
+
+### macOS ###
 .DS_Store
-Thumbs.db
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# Environment
-.env
-.env.local
-.env.*.local
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+### Linux ###
+*~
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# Backup Files
+# ============================================
+*.bak
+*.backup
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~.nib
+*.save
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+docker-compose.local.yml
+.docker/
+.dockerignore.local
+Dockerfile.local
+
+# ============================================
+# Cloud Provider Configuration
+# ============================================
+
+### AWS ###
+.aws/
+.elasticbeanstalk/
+aws-exports.js
+
+### Azure ###
+.azure/
+
+### Google Cloud ###
+.gcloud/
+gcloud-key.json
+
+### Firebase ###
+.firebaserc
+firebase-debug.log
+firebase-debug.*.log
+.firebase/
+
+### Vercel ###
+.vercel
+
+### Netlify ###
+.netlify
+
+# ============================================
+# Package Managers & Build Tools
+# ============================================
+
+### Yarn ###
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+### PNPM ###
+.pnpm-store/
+
+### Webpack ###
+.webpack/
+
+### Parcel ###
+.parcel-cache/
+
+### Rollup ###
+.rollup.cache/
+
+# ============================================
+# Miscellaneous
+# ============================================
+
+### Temporary Files ###
+*.tmp
+*.temp
+scratch/
+temp/
+
+### Archives ###
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+### Storybook ###
+storybook-static/
+
+### Documentation Builds ###
+/docs/build/
+/docs/dist/
+
+# ============================================
+# Security & Compliance
+# ============================================
+
+### Security Scanning ###
+.snyk
+snyk-results.json
+
+### Dependency Audits ###
+npm-audit.json
+yarn-audit.json
+
+### SAST/DAST Results ###
+sonar-project.properties
+.sonarqube/
+
+# ============================================
+# Performance & Profiling
+# ============================================
+
+### Chrome Dev Tools ###
+*.cpuprofile
+*.heapsnapshot
+
+### Performance ###
+/stats.json
+bundle-analyzer-report.html
+
+# ============================================
+# Service Workers & PWA
+# ============================================
+/ngsw-config.json.backup
+/service-worker.js.backup
+
+# ============================================
+# Application Specific
+# ============================================
+
+### Custom Ignore Patterns ###
+# Add your application-specific patterns here
+# Example:
+# /src/assets/private/
+# /public/uploads/
+# user-data/
+
+# ============================================
+# Keep These Files
+# ============================================
+# Use ! to un-ignore files that match patterns above
+# !src/environments/environment.ts
+# !.vscode/settings.json
